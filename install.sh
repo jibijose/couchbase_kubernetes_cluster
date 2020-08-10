@@ -3,7 +3,7 @@
 NAMESPACE=couchbase
 kubectl create namespace ${NAMESPACE}
 
-unzip couchbase-autonomous-operator-kubernetes_2.0.1-macos-x86_64.zip
+unzip -qq couchbase-autonomous-operator-kubernetes_2.0.1-macos-x86_64.zip
 cd couchbase-autonomous-operator-kubernetes_2.0.1-macos-x86_64
 kubectl create -f crd.yaml
 bin/cbopcfg --no-operator --namespace ${NAMESPACE} | kubectl create -n ${NAMESPACE} -f -
