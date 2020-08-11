@@ -2,6 +2,7 @@ apiVersion: couchbase.com/v2
 kind: CouchbaseBucket
 metadata:
   name: {{ .Values.cluster.bucket.name }}
+  namespace: {{ .Values.cluster.namespace }}
 spec:
   memoryQuota: 6Gi
   replicas: {{ .Values.cluster.bucket.replicas }}

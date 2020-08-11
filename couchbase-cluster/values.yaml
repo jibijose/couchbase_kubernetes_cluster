@@ -1,5 +1,6 @@
 cluster:
     name: cb-example
+    namespace: couchbase
     image: couchbase/server:6.5.0
     username: Administrator
     password: "password"

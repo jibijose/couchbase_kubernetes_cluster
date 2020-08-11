@@ -2,6 +2,7 @@ apiVersion: couchbase.com/v2
 kind: CouchbaseCluster
 metadata:
   name: cb-example
+  namespace: {{ .Values.cluster.namespace }}
 spec:
   image: {{ .Values.cluster.image }}
   platform: aws
