@@ -28,10 +28,7 @@ metadata:
 spec:
   image: couchbase/server:6.5.0
   platform: aws
-  serverGroups:
-  - eu-west-2a
-  - eu-west-2b
-  - eu-west-2c
+  serverGroups: [eu-west-2a, eu-west-2b, eu-west-2c]
   securityContext:
     runAsUser: 1000
     runAsNonRoot: true
@@ -52,10 +49,7 @@ spec:
     name: data_services
     services:
     - data
-    serverGroups:
-      - eu-west-2a
-      - eu-west-2b
-      - eu-west-2c
+    serverGroups: [eu-west-2a, eu-west-2b, eu-west-2c]
     resources:
       requests:
         cpu: "4"
@@ -67,10 +61,7 @@ spec:
     name: index_services
     services:
     - index
-    serverGroups:
-      - eu-west-2a
-      - eu-west-2b
-      - eu-west-2c
+    serverGroups: [eu-west-2a, eu-west-2b, eu-west-2c]
     resources:
       requests:
         cpu: "4"
@@ -82,10 +73,7 @@ spec:
     name: query_services
     services:
     - query
-    serverGroups:
-      - eu-west-2a
-      - eu-west-2b
-      - eu-west-2c
+    serverGroups: [eu-west-2a, eu-west-2b, eu-west-2c]
     resources:
       requests:
         cpu: "4"

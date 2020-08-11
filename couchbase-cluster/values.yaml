@@ -1,0 +1,19 @@
+cluster:
+    name: cb-example
+    image: couchbase/server:6.5.0
+    servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
+    data:
+        size: 6
+        servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
+        cpu: "4"
+        memory: 8Gi
+    index:
+        size: 3
+        servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
+        cpu: "4"
+        memory: 8Gi
+    query:
+        size: 3
+        servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
+        cpu: "4"
+        memory: 8Gi

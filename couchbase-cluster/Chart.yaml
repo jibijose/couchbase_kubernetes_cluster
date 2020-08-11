@@ -1,0 +1,19 @@
+apiVersion: v2
+appVersion: 1.16.0
+name: mychart
+description: A Helm chart for Kubernetes couchbase cluster
+home: https://www.couchbase.com
+icon: ""
+keywords:
+    - couchbase
+    - database
+    - nosql
+    - cluster
+    - replication
+maintainers:
+    - email: jibijose@yahoo.com
+      name: Jibi Jose
+sources:
+    - https://github.com/jibijose/couchbase_kubernetes_cluster.git
+type: application
+version: 0.1.0

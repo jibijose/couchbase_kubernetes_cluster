@@ -1,0 +1,60 @@
+apiVersion: couchbase.com/v2
+kind: CouchbaseCluster
+metadata:
+  name: cb-example
+spec:
+  image: {{ .Values.cluster.image }}
+  platform: aws
+  serverGroups: {{ .Values.cluster.servergroups }}
+  securityContext:
+    runAsUser: 1000
+    runAsNonRoot: true
+    fsGroup: 1000
+  security:
+    adminSecret: cb-example-auth
+  buckets:
+    managed: true
+  cluster:
+    clusterName: cb-example
+    dataServiceMemoryQuota: 6Gi
+    indexServiceMemoryQuota: 6Gi
+  logging:
+    logRetentionTime: 604800s
+    logRetentionCount: 20
+  servers:
+  - size: {{ .Values.cluster.data.size }}
+    name: data_services
+    services:
+    - data
+    serverGroups: {{ .Values.cluster.data.servergroups }}
+    resources:
+      requests:
+        cpu: "{{ .Values.cluster.data.cpu }}"
+        memory: {{ .Values.cluster.data.memory }}
+      limits:
+        cpu: "{{ .Values.cluster.data.cpu }}"
+        memory: {{ .Values.cluster.data.memory }}
+  - size: {{ .Values.cluster.index.size }}
+    name: index_services
+    services:
+    - index
+    serverGroups: {{ .Values.cluster.index.servergroups }}
+    resources:
+      requests:
+        cpu: "{{ .Values.cluster.index.cpu }}"
+        memory: {{ .Values.cluster.index.memory }}
+      limits:
+        cpu: "{{ .Values.cluster.index.cpu }}"
+        memory: {{ .Values.cluster.index.memory }}
+  - size: {{ .Values.cluster.query.size }}
+    name: query_services
+    services:
+    - query
+    serverGroups: {{ .Values.cluster.query.servergroups }}
+    resources:
+      requests:
+        cpu: "{{ .Values.cluster.query.cpu }}"
+        memory: {{ .Values.cluster.query.memory }}
+      limits:
+        cpu: "{{ .Values.cluster.query.cpu }}"
+        memory: {{ .Values.cluster.query.memory }}

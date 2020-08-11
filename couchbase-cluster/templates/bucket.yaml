@@ -1,0 +1,13 @@
+apiVersion: couchbase.com/v2
+kind: CouchbaseBucket
+metadata:
+  name: pillow
+spec:
+  memoryQuota: 6Gi
+  replicas: 2
+  ioPriority: low
+  evictionPolicy: valueOnly
+  conflictResolution: seqno 
+  enableFlush: true
+  enableIndexReplica: true
+  compressionMode: passive
