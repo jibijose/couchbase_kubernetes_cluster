@@ -1,6 +1,8 @@
 cluster:
     name: cb-example
     image: couchbase/server:6.5.0
+    username: Administrator
+    password: "password"
     servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
     data:
         size: 6
@@ -17,3 +19,6 @@ cluster:
         servergroups: '[eu-west-2a, eu-west-2b, eu-west-2c]'
         cpu: "4"
         memory: 8Gi
+    bucket:
+        name: pillow
+        replicas: 2

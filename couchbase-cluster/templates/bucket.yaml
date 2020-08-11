@@ -1,10 +1,10 @@
 apiVersion: couchbase.com/v2
 kind: CouchbaseBucket
 metadata:
-  name: pillow
+  name: {{ .Values.cluster.bucket.name }}
 spec:
   memoryQuota: 6Gi
-  replicas: 2
+  replicas: {{ .Values.cluster.bucket.replicas }}
   ioPriority: low
   evictionPolicy: valueOnly
   conflictResolution: seqno 
